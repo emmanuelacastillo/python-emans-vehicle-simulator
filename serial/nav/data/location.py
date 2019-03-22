@@ -1,6 +1,6 @@
 
 
-class GeneralLocation(object):
+class Location(object):
     
     def __get_address_num(self) -> int:
         return self.__address_num

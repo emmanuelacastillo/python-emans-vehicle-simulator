@@ -1,5 +1,5 @@
 from datetime import datetime
-
+from services import main_services
 # Start threads for devices
 
 
@@ -16,3 +16,4 @@ print("State: ")
 print("Zip Code: ")
 
 print("**Engine Started**")
+main_services().run()

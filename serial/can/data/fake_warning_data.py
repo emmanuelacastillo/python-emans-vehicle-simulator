@@ -1,7 +1,8 @@
 import array
+from serial.can.data.tire import Tire
 
 
-class CAN(object):
+class FakeWarningData(object):
     MAX_LEVEL: int = 100
     MAX_MILEAGE: int = 10000
     MAX_GEAR: int = 5
@@ -30,21 +31,14 @@ class CAN(object):
     def __set_oil_health(self, oil_health: float):
         self.__oil_health = oil_health
 
-    def __get_current_speed(self) -> float:
-        return self.__current_speed
+    def __get_tires(self) -> array(Tire):
+        return self.__tires
 
-    def __set_current_speed(self, current_speed: float):
-        self.__current_speed = current_speed
-
-    def __get_tire_pressures(self) -> array(float):
-        return self.__tire_pressures
-
-    def __set_tire_pressures(self, tire_pressures: array(float)):
-        self.__tire_pressures = tire_pressures
+    def __set_tires(self, tires: array(Tire)):
+        self.__tires = tires
 
     current_gear = property(__get_current_gear, __set_current_gear)
     current_gas_level = property(__get_current_gas_level, __get_current_gas_level)
     current_gas_mleage = property(__get_current_mileage, __set_current_mileage)
     oil_health = property(__get_oil_health, __set_oil_health)
-    current_speed = property(__get_current_speed, __set_current_speed)
-    tire_pressures = property(__get_tire_pressures, __set_tire_pressures)
+    tires = property(__get_tires, __set_tires)

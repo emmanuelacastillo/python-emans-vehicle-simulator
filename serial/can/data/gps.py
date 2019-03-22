@@ -1,7 +1,7 @@
-from datetime import datetime
+import datetime
 
 
-class GeoLocation(object):
+class GPS(object):
 
     def __init__(self):
         self.time: datetime
