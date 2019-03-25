@@ -3,17 +3,27 @@ from serial.can.data.gps import GPS
 
 class FakeGeneralData(object):
 
-    def __get_current_speed(self) -> float:
-        return self.__current_speed
-
-    def __set_current_speed(self, current_speed: float):
-        self.__current_speed = current_speed
-
-    def __get_current_gps(self) -> GPS:
-        return self.__gps
-
-    def __set_current_gps(self, gps: GPS):
+    def __init__(self, speed: float, gps: GPS):
+        self.__speed = speed
         self.__gps = gps
 
-    current_speed = property(__get_current_speed, __set_current_speed)
-    current_gps = property(__get_current_gps, __set_current_gps)
+    @property
+    def speed(self) -> float:
+        return self.__speed
+
+    @property
+    def gps(self) -> GPS:
+        return self.__gps
+
+    def get_json(self):
+        return {
+            'speed': str(self.speed),
+            'gps': {
+                'time': str(self.gps.time),
+                'latitude': str(self.gps.latitude),
+                'longitude': str(self.gps.longitude),
+                'fix_quality': str(self.gps.fix_quality),
+                'altitude': str(self.gps.altitude),
+                'height': str(self.gps.height)
+            }
+        }

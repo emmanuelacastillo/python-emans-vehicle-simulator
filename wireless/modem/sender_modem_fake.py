@@ -1,7 +1,8 @@
+import requests
 from wireless.sender import Sender
 
 
 class SenderModemFake(Sender):
 
-    def send(self, data: bytearray):
-        pass # construct based on protocol
+    def send(self, url, json: dict):
+        requests.post(url, json=json)
