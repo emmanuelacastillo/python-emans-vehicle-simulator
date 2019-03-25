@@ -11,6 +11,8 @@ There are 3 types of data that is sent to its corresponding REST service endpoin
 2. Warning Vehicle Information which consist of: Gas, Gear, Oil and Mileage.
 3. Navigation System which consist of: Current Direction, Distance and Next Direction.
 
+The console will display data that is sent to the REST services every 1 second.
+
 
 ### Requirements: configuration
 
